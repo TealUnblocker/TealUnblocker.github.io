@@ -45377,6 +45377,7 @@ Cb:Wd`https://pagead2.googlesyndication.com/pagead/managed/js/adsense/${a}/show_
   <body>
     
     <div class="main">
+      <center><button style="width: 50px; height: 50px;" id="home-page" onclick="Home()"><img src="https://raw.githubusercontent.com/NoHapara/imgs/refs/heads/main/teal.png"></button><h1>Home</h1></center>
       <div class="settings-container">
         <div class="settings-card">
           <h3>About:Blank</h3>
@@ -45513,7 +45514,11 @@ Cb:Wd`https://pagead2.googlesyndication.com/pagead/managed/js/adsense/${a}/show_
         </div>
       </div>
     </div>
-    <script>document.addEventListener("DOMContentLoaded", () => {
+    <script>
+      function Home() {
+  window.location.href = "https://tealunblocker.github.io/";
+}
+      document.addEventListener("DOMContentLoaded", () => {
   if (!document.getElementById("no")) {
     const script = document.createElement("script");
     script.type = "text/javascript";
