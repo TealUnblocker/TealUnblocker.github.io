@@ -625,9 +625,32 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
   <a class="navbar-link btn btn-info" href="https://tealunblocker.github.io/gr"><i class="fa-solid navbar-icon settings-icon"></i><an>Game </an><an>Recomendations</an></a>
   <br>
   <a class="navbar-link btn btn-info" href="https://tealunblocker.github.io/hp"><i class="fa-solid navbar-icon settings-icon"></i><an>Ga</an><an>mes</an></a>
-    </div>
+   <br>
+   <button onclick="a()" class="btn btn-info">About:Blank popup</button>
   </div>
-  <script>window.addEventListener("load", () => {
+  </div>
+  <script>
+    var urlObj1 = new window.URL(window.location.href);
+      var url1 = "https://tealunblocker.github.io/";
+      if (url1) {
+        var win1;
+        function a() {
+          if (win1) {
+            win.focus();
+          } else {
+            win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.src = url1;
+            win.document.body.appendChild(iframe);
+          } 
+        };
+      }
+    window.addEventListener("load", () => {
 navigator.serviceWorker.register("../sw.js?v=10-02-2024", {
   scope: "/a/",
 });
@@ -704,48 +727,7 @@ if (
 !navigator.userAgent.includes("Firefox") &&
 localStorage.getItem("ab") === "true"
 ) {
-const popup = open("about:blank", "_blank");
-if (!popup || popup.closed) {
-  alert(
-    "Popups dont work well right now but you can use them if you want to stop teachers from seeing your screen.",
-  );
-} else {
-  const doc = popup.document;
-  const iframe = doc.createElement("iframe");
-  const style = iframe.style;
-  const link = doc.createElement("link");
 
-  const name = localStorage.getItem("name") || "My Drive - Google Drive";
-  const icon =
-    localStorage.getItem("icon") ||
-    "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png";
-
-  doc.title = name;
-  link.rel = "icon";
-  link.href = icon;
-
-  iframe.src = location.href;
-  style.position = "fixed";
-  style.top = style.bottom = style.left = style.right = 0;
-  style.border = style.outline = "none";
-  style.width = style.height = "100%";
-
-  doc.head.appendChild(link);
-  doc.body.appendChild(iframe);
-
-  const pLink = localStorage.getItem(encodeURI("pLink")) || getRandomUrl();
-  location.replace(pLink);
-
-  const script = doc.createElement("script");
-  script.textContent = `
-    window.onbeforeunload = function (event) {
-      const confirmationMessage = 'Leave Site?';
-      (event || window.event).returnValue = confirmationMessage;
-      return confirmationMessage;
-    };
-  `;
-  doc.head.appendChild(script);
-}
 }
 // Particles
 document.addEventListener("DOMContentLoaded", event => {
