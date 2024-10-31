@@ -1,1 +1,0 @@
-javascript:document.write('<body style="background-color: #505c5c;" height: 100%; width: 100%;"><iframe style="border: 0 solid #73AD21;" width="100%" height="100%"src="https://tealunblocker.github.io"></iframe></body>');
