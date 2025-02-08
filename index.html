@@ -624,10 +624,57 @@ function hexToRgb(e){var a=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;e=e.replace(a,func
   <br>
    <button onclick="a()" class="btn btn-info">About:Blank popup</button>
    <br>
+   <button onclick="b()" class="btn btn-info">Blob: popup</button>
+   <br>
    <a class="navbar-link btn btn-info" href="https://tealunblocker.github.io/mr"><i class="fa-solid settings-icon"></i><an>More </an><an>Tools</an></a>
    </div>
   </div>
   <script>
+    function b() {
+	const currentSiteUrl = window.location.href + '?redirect=true';
+
+	const htmlContent = `
+		<html>
+			<head>
+				<title>Teal</title>
+				<link rel="shortcut icon" id="tab-favicon" href="https://raw.githubusercontent.com/TealUnblocker/Images/refs/heads/main/Teal%20Logo.png">
+				<style>
+					body, html {
+						margin: 0;
+						padding: 0;
+						width: 100%;
+						height: 100%;
+						overflow: hidden;
+					}
+					iframe {
+						position: fixed;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						border: none;
+					}
+				</style>
+			</head>
+			<body>
+				<iframe src="https://tealunblocker.github.io/"></iframe>
+</body>
+		</html>
+	`;
+
+	const blob = new Blob([htmlContent], {
+		type: 'text/html'
+	});
+
+	const blobUrl = URL.createObjectURL(blob);
+
+	let newWindow = window.open(blobUrl);
+	if (newWindow) {
+		newWindow.onload = () => {
+			newWindow.document.title = 'Teal';
+		};
+	}
+}
     var urlObj1 = new window.URL(window.location.href);
       var url1 = "https://tealunblocker.github.io/";
       if (url1) {
